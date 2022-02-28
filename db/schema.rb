@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_28_220723) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_28_225546) do
   create_table "anime_genres", force: :cascade do |t|
     t.integer "anime_id", null: false
     t.integer "genre_id", null: false
@@ -42,6 +42,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_28_220723) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "mangas", force: :cascade do |t|
+    t.string "name"
+    t.integer "chapter"
+    t.string "img"
+    t.string "synopsis"
+    t.integer "popularity"
+    t.integer "volumes"
+    t.string "status"
+    t.integer "media_type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["media_type_id"], name: "index_mangas_on_media_type_id"
+  end
+
   create_table "media_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -57,4 +71,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_28_220723) do
   add_foreign_key "anime_genres", "animes"
   add_foreign_key "anime_genres", "genres"
   add_foreign_key "animes", "types"
+  add_foreign_key "mangas", "media_types"
 end
