@@ -2,7 +2,7 @@
 
 <% content_for(:html_title) {@anime.name} %>
 
-<p>
+<p></p>
   <strong>Episode:</strong>
   <%= @anime.episode %>
 </p>
@@ -27,6 +27,12 @@
   <strong>Rating:</strong>
 
   <%= @anime.rating %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+
+  <%= @anime.genres_list %>
 </p>
 
 <p>
