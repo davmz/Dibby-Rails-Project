@@ -10,7 +10,16 @@ Rails.application.routes.draw do
   # get 'animes/index'
   # get 'animes/show'
 
+  # Home page
   root to: "home#index"
-  resources :animes, only: [:index, :show]
+
+  resources :animes, only: [:index, :show] do
+    collection do
+      get "search"
+    end
+
+    # animes/search/(:format)
+  end
+
   resources :types, only: [:index, :show]
 end

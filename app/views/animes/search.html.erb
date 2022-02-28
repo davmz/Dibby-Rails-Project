@@ -1,0 +1,14 @@
+<p class="mb-5">
+  Animes found when searching for:
+  <strong>
+    <%= params[:keywords] %>
+  </strong>
+</p>
+
+<ul>
+  <% @animes.each do | anime | %>
+    <li>
+      <%= link_to anime.name, anime %>
+    </li>
+  <% end %>
+</ul>
