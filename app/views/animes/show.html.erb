@@ -1,2 +1,50 @@
 <h1 class="title is-2"><%= @anime.name %></h1>
-<p>Find me in app/views/animes/show.html.erb</p>
+<%# <p>Find me in app/views/animes/show.html.erb</p> %>
+
+<p>
+  <strong>Episode:</strong>
+  <%= @anime.episode %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @anime.status %>
+</p>
+
+<p>
+  <strong>Season:</strong>
+  <%= @anime.season %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+
+  <%= @anime.duration %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+
+  <%= @anime.rating %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+
+  <%= @anime.score %>
+</p>
+
+<p>
+  <strong>Vote:</strong>
+  <%= @anime.vote %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @anime.description %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= link_to @anime.type.name, @anime.type %>
+</p>

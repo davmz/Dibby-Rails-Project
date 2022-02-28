@@ -1,2 +1,14 @@
-<h1>Types#show</h1>
-<p>Find me in app/views/types/show.html.erb</p>
+<h1 class="title is-2"><%= @type.name %></h1>
+<%# <p>Find me in app/views/types/show.html.erb</p> %>
+
+<p class="mb-5">
+  This type has <%= @type.animes.count %> on MyAnimeList.
+</p>
+
+<ul>
+  <% @type.animes.each do | anime |%>
+    <li>
+      <%= link_to anime.name, anime %> with score of <%= anime.score %>
+    </li>
+  <% end %>
+</ul>
