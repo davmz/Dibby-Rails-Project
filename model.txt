@@ -1,0 +1,20 @@
+Anime Table
+- id, name
+
+Anime Producer Table
+- anime_id, producer_id
+
+Producer Table (ONE Producer can be with MANY Anime)
+- id, name
+
+Studio Anime Table
+- anime_id, studio_id
+
+Studio Table (ONE Studio can be with MANY Anime)
+- id, name
+
+Anime_Genre Table
+- anime_id, genre_id
+
+Genre Table (MANY Genre can be with MANY Anime)
+- id, name
