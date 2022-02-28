@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  episode: 1
+  status: MyString
+  season: MyString
+  duration: MyString
+  rating: MyString
+  score: 9.99
+  vote: 1
+  description: MyString
+  type: one
+
+two:
+  name: MyString
+  episode: 1
+  status: MyString
+  season: MyString
+  duration: MyString
+  rating: MyString
+  score: 9.99
+  vote: 1
+  description: MyString
+  type: two
