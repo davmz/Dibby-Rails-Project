@@ -1,3 +1,6 @@
+Type Table
+- id, name
+
 Anime Table
 - id, name
 
