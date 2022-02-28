@@ -1,8 +1,3 @@
 <h1 class="title is-2">Top Animes</h1>
-<%# <p>Find me in app/views/animes/index.html.erb</p> %>
 
-<% @animes.each do | anime | %>
-  <li>
-  <%= link_to anime.name, anime %> is a <%= link_to anime.type.name %>
-  </li>
-<% end %>
+<%= render @animes %>

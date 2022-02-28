@@ -19,5 +19,11 @@
         <%= yield %>
       </div>
     </section>
+
+    <% if controller_name == "home" %>
+      <p>Dibby Home Page 😊</p>
+    <% else %>
+      <%= render partial: "common/footer" %>
+    <% end %>
   </body>
 </html>
