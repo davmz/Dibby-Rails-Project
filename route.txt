@@ -1,0 +1,6 @@
+GET /
+GET /Anime
+GET /Anime/:id
+
+GET /Type
+GET /Type/:id
