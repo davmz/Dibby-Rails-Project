@@ -1,5 +1,6 @@
 <h1 class="title is-2"><%= @anime.name %></h1>
-<%# <p>Find me in app/views/animes/show.html.erb</p> %>
+
+<% content_for(:html_title) {@anime.name} %>
 
 <p>
   <strong>Episode:</strong>
@@ -39,12 +40,20 @@
   <%= @anime.vote %>
 </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @anime.description %>
-</p>
 
-<p>
+<p class="mb-5">
   <strong>Type:</strong>
   <%= link_to @anime.type.name, @anime.type %>
 </p>
+
+<article class="message is-dark">
+  <div class="message-header">
+    <p>
+      Description
+    </p>
+  </div>
+
+  <div class="message-body">
+    <%= @anime.description %>
+  </div>
+</article>
