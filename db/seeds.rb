@@ -9,6 +9,8 @@
 require "csv"
 
 ## Delete Model Tables
+Studio.delete_all
+
 AnimeGenre.delete_all
 Anime.delete_all
 Type.delete_all
@@ -74,6 +76,17 @@ animes.each do | a |
     end
 
     # End our Genre Creation
+
+
+    # Create our Studio Table
+
+    studios = a["Studios"].split(",").map(&:strip)
+
+    studios.each do | studio_name |
+      studio = Studio.find_or_create_by(name: studio_name)
+    end
+
+    # End our Studio Creation
   else
     puts "Invalid TYPE #{a["Type"]} for anime #{a["Title"]}."
   end
@@ -120,6 +133,12 @@ mangas.each do | m |
 end
 
 ## Creation Counter
+puts "Created #{Studio.count} Studios"
+# puts "Created #{AnimeStudio.count} Anime Studios"
+
+# puts "Created #{Producer.count} Studios"
+# puts "Created #{AnimeProducer.count} Anime Producers"
+
 puts "Created #{Type.count} Types"
 puts "Created #{Anime.count} Animes"
 puts "Created #{AnimeGenre.count} Anime Genres"
