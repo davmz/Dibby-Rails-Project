@@ -1,3 +1,5 @@
 <h1 class="title is-2">
   <%= @producer.name %>
 </h1>
+
+<% content_for(:html_title) {@producer.name + " | Producer"} %>

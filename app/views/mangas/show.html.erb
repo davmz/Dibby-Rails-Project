@@ -2,6 +2,8 @@
   <%= @manga.name %>
 </h1>
 
+<% content_for(:html_title) {@manga.name + " | Manga"} %>
+
 <p>
   <strong>Chapter:</strong>
   <%= @manga.chapter %>
@@ -27,13 +29,19 @@
   <%= @manga.popularity %>
 </p>
 
-<p>
+<p class="mb-5">
   <strong>Published:</strong>
   <%= @manga.publish %>
 </p>
 
-<p>
-  <strong>Synopsis:</strong>
-  <%= @manga.synopsis %>
-</p>
+<article class="message is-dark">
+  <div class="message-header">
+    <p>
+      Synopsis
+    </p>
+  </div>
 
+  <div class="message-body">
+    <%= @manga.synopsis %>
+  </div>
+</article>

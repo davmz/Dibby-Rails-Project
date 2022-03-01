@@ -1,3 +1,5 @@
 <h1 class="title is-2">
   <%= @genre.name %>
 </h1>
+
+<% content_for(:html_title) {@genre.name + " | Genre"} %>
