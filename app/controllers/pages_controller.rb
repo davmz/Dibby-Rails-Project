@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_page, only: %i[ show edit update destroy ]
+  http_basic_authenticate_with name: "admin", password: "potato"
 
   # GET /pages or /pages.json
   def index
@@ -7,7 +8,8 @@ class PagesController < ApplicationController
   end
 
   # GET /pages/1 or /pages/1.json
-  def show
+  def permalink
+    @page = Page.find_by(permalink: params[:permalink])
   end
 
   # GET /pages/new
@@ -25,7 +27,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
-        format.html { redirect_to page_url(@page), notice: "Page was successfully created." }
+        format.html { redirect_to permalink, notice: "Page was successfully created." }
         format.json { render :show, status: :created, location: @page }
       else
         format.html { render :new, status: :unprocessable_entity }

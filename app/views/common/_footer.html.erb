@@ -11,5 +11,11 @@
     <li>
       <%= link_to "Type", types_path %>
     </li>
+
+    <% cms_pages.each do | page | %>
+      <li>
+        <%= link_to page.title, permalink_path(page.permalink) %>
+      </li>
+    <% end %>
   </ul>
 </footer>

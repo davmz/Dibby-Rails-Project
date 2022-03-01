@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :pages
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -23,6 +22,11 @@ Rails.application.routes.draw do
 
   ## Home page
   root to: "home#index"
+
+  ## Pages
+  resources :pages, except: [:show]
+
+  get "/pages/:permalink" => "pages#permalink", as: "permalink"
 
   ## Anime
   resources :animes, only: [:index, :show] do

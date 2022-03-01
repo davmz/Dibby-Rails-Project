@@ -9,6 +9,8 @@
 require "csv"
 
 ## Delete Model Tables
+Page.delete_all
+
 AnimeProducer.delete_all
 Producer.delete_all
 
@@ -158,6 +160,15 @@ mangas.each do | m |
 end
 
 ## Creation Counter
+# Created 147 Studios
+# Created 1671 Anime Studios
+# Created 400 Producers
+# Created 4044 Anime Producers
+# Created 6 Types
+# Created 1563 Animes
+# Created 6661 Anime Genres
+# Created 1001 Mangas
+# Created 4147 Anime Genres
 puts "Created #{Studio.count} Studios"
 puts "Created #{AnimeStudio.count} Anime Studios"
 
@@ -171,12 +182,27 @@ puts "Created #{AnimeGenre.count} Anime Genres"
 puts "Created #{Manga.count} Mangas"
 puts "Created #{MangaGenre.count} Anime Genres"
 
-# Created 147 Studios
-# Created 1671 Anime Studios
-# Created 400 Producers
-# Created 4044 Anime Producers
-# Created 6 Types
-# Created 1563 Animes
-# Created 6661 Anime Genres
-# Created 1001 Mangas
-# Created 4147 Anime Genres
+## Page Creation
+Page.create(
+  title: "About",
+  content: "The data powering this lovely Rails Application was provided by Kaggle Dataset.",
+  permalink: "about"
+)
+
+Page.create(
+  title: "Contact",
+  content: "If you like this site and want to chat about the project or the data, email me at: @gmail.com.",
+  permalink: "contact"
+)
+
+Page.create(
+  title: "Support",
+  content: "If you have any trouble please feel free to email us.",
+  permalink: "support"
+)
+
+Page.create(
+  title: "FAQ",
+  content: "Who made this application?: ME",
+  permalink: "faq"
+)
