@@ -9,6 +9,7 @@
 require "csv"
 
 ## Delete Model Tables
+AnimeStudio.delete_all
 Studio.delete_all
 
 AnimeGenre.delete_all
@@ -84,6 +85,11 @@ animes.each do | a |
 
     studios.each do | studio_name |
       studio = Studio.find_or_create_by(name: studio_name)
+
+      AnimeStudio.create(
+        anime: anime,
+        studio: studio
+      )
     end
 
     # End our Studio Creation
@@ -134,7 +140,7 @@ end
 
 ## Creation Counter
 puts "Created #{Studio.count} Studios"
-# puts "Created #{AnimeStudio.count} Anime Studios"
+puts "Created #{AnimeStudio.count} Anime Studios"
 
 # puts "Created #{Producer.count} Studios"
 # puts "Created #{AnimeProducer.count} Anime Producers"
