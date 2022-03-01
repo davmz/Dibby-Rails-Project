@@ -2,8 +2,9 @@ class HomeController < ApplicationController
   def index
     @animes = Anime.includes(:type)
                     .order("score DESC")
-                    .limit(10)
+                    .limit(30)
 
-    @types = Type.ordered_by_animes.limit(10)
+    @mangas = Manga.order("score DESC")
+                    .limit(30)
   end
 end

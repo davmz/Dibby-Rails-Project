@@ -1,6 +1,6 @@
 <div>
   <div class="column">
-    <h2 class="title is-2">Top 10 Animes</h2>
+    <h2 class="title is-2">Top 30 Animes</h2>
     <ol class="ml-5">
       <%= render @animes %>
     </ol>
@@ -8,6 +8,23 @@
     <p class="mt-5">
       <strong>
         <%= link_to '👉 See the Top Animes', animes_path %>
+      </strong>
+    </p>
+  </div>
+
+  <div class="column">
+    <h2 class="title is-2">Top 30 Mangas</h2>
+    <ol class="ml-5">
+      <% @mangas.each do | manga | %>
+      <li>
+        <%= manga.name %>
+      </li>
+      <% end %>
+    </ol>
+
+    <p class="mt-5">
+      <strong>
+        <%= link_to '👉 See the Top Mangas', animes_path %>
       </strong>
     </p>
   </div>
