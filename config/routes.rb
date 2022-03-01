@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'mangas/index'
+  get 'mangas/show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -12,7 +14,6 @@ Rails.application.routes.draw do
 
   # Home page
   root to: "home#index"
-
   resources :animes, only: [:index, :show] do
     collection do
       get "search"
