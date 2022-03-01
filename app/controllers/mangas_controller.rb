@@ -4,6 +4,6 @@ class MangasController < ApplicationController
   end
 
   def show
-
+    @manga = Manga.find(params[:id])
   end
 end
