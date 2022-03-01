@@ -1,151 +1,124 @@
-# # This file should contain all the record creation needed to seed the database with its default values.
-# # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-# #
-# # Examples:
-# #
-# #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-# #   Character.create(name: "Luke", movie: movies.first)
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.create(name: "Luke", movie: movies.first)
 
-# require "csv"
+require "csv"
 
-# ## Delete Model Tables
+## Delete Model Tables
 AnimeGenre.delete_all
 Anime.delete_all
 Type.delete_all
 
-# MangaGenre.delete_all
 Manga.delete_all
 
 Genre.delete_all
 
-# ## Set up CSV file to extract the data
-# anime_filename = Rails.root.join("db/dataanime.csv")
-# puts "Loading Anime the CSV file: #{anime_filename}"
+## Set up CSV file to extract the data
+anime_filename = Rails.root.join("db/dataanime.csv")
+puts "Loading Anime the CSV file: #{anime_filename}"
 
-# anime_csv_data = File.read(anime_filename)
-# animes = CSV.parse(anime_csv_data, headers:true, encoding: "utf-8")
+anime_csv_data = File.read(anime_filename)
+animes = CSV.parse(anime_csv_data, headers:true, encoding: "utf-8")
 
-# manga_filename = Rails.root.join("db/datamanga.csv")
-# puts "Loading Manga the CSV file: #{manga_filename}"
+manga_filename = Rails.root.join("db/manga.csv")
+puts "Loading Manga the CSV file: #{manga_filename}"
 
-# manga_csv_data = File.read(manga_filename)
-# mangas = CSV.parse(manga_csv_data, headers:true, encoding: "utf-8")
+manga_csv_data = File.read(manga_filename)
+mangas = CSV.parse(manga_csv_data, headers:true, encoding: "utf-8")
 
-# # ## Loop through the CSV to populate the models
-# animes.each do | a |
-#   type = Type.find_or_create_by(name: a["Type"])
+## Loop through the CSV to populate the models
+animes.each do | a |
+  type = Type.find_or_create_by(name: a["Type"])
 
-#   if type && type.valid?
+  if type && type.valid?
 
-#     # Create our Animes Table
+    # Create our Animes Table
 
-#     anime = type.animes.create(
-#         name: a["Title"],
-#         episode: a["Episodes"],
-#         status: a["Status"],
-#         season: a["Starting season"],
-#         duration: a["Duration"],
-#         rating: a["Rating"],
-#         score: a["Score"],
-#         vote: a["Scored by"],
-#         description: a["Description"]
-#     )
+    anime = type.animes.create(
+        name: a["Title"],
+        episode: a["Episodes"],
+        status: a["Status"],
+        season: a["Starting season"],
+        duration: a["Duration"],
+        rating: a["Rating"],
+        score: a["Score"],
+        vote: a["Scored by"],
+        description: a["Description"]
+    )
 
-#     # End our Anime Creation
-
-
-#     unless anime.valid?
-#       puts "Invalid anime #{a["Title"]}"
-#       next
-#     end
+    # End our Anime Creation
 
 
-#     # Create our Genres Table
-
-#     genres = a["Genres"].split(",").map(&:strip)
-
-#     genres.each do | genre_name |
-#       genre = Genre.find_or_create_by(name: genre_name)
-
-#       AnimeGenre.create(
-#         anime: anime,
-#         genre: genre
-#       )
-#     end
-
-#     # End our Genre Creation
-#   else
-#     puts "Invalid TYPE #{a["Type"]} for anime #{a["Title"]}."
-#   end
-# end
-
-# mangas.each do | m |
-#   Manga.uniqueness.create(
-#     name: m["Title"],
-#     chapter: m["Chapters"],
-#     volume: m["Volumns"],
-#     status: m["Status"],
-#     score: m["Score"],
-#     popularity: m["Popularity"],
-#     synopsis: m["Synopsis"],
-#     publish: m["Publish_period"],
-#   )
-
-#   # mediatype = MediaType.find_or_create_by(name: m["media_type"])
-
-#   # if mediatype && mediatype.valid?
-
-#   #   # Create our Mangas Table
-
-#   #   # manga = mediatype.mangas.create(
-#   #   #   name: m["title"],
-#   #   #   chapter: m["num_chapters"],
-#   #   #   img: m["main_picture.medium"],
-#   #   #   synopsis: m["synopsis"],
-#   #   #   popularity: m["popularity"],
-#   #   #   volumes: m["num_volumes"],
-#   #   #   status: m["status"]
-#   #   # )
-
-#   #   # End our Manga Creation
+    unless anime.valid?
+      puts "Invalid anime #{a["Title"]}"
+      next
+    end
 
 
-#   #   # unless manga.valid?
-#   #   #   puts "Invalid manga #{m["title"]}"
-#   #   #   next
-#   #   # end
+    # Create our Genres Table
 
+    genres = a["Genres"].split(",").map(&:strip)
 
-#   #   # Create our Genres Table
+    genres.each do | genre_name |
+      genre = Genre.find_or_create_by(name: genre_name)
 
-#   #   genres = m["genres"].split(", ").map(&:strip)
+      AnimeGenre.create(
+        anime: anime,
+        genre: genre
+      )
+    end
 
-#   #   unless genres.nil?
-#   #     puts "Invalid manga #{m["title"]}"
-#   #   end
+    # End our Genre Creation
+  else
+    puts "Invalid TYPE #{a["Type"]} for anime #{a["Title"]}."
+  end
+end
 
-#   #   # genres.each do | genre_name |
-#   #   #   puts genre_name
-#   #   # end
+mangas.each do | m |
+  Manga.create(
+    name: m["Title"],
+    chapter: m["Chapters"],
+    volume: m["Volumns"],
+    status: m["Status"],
+    score: m["Score"],
+    popularity: m["Popularity"],
+    synopsis: m["Synopsis"],
+    publish: m["Publish_period"],
+  )
 
-#   #   # genres.each do | genre_name |
-#   #   #     genre = Genre.find_or_create_by(name: genre_name)
+    # Create our Genres Table
 
-#   #   #     MangaGenre.create(
-#   #   #       manga: manga,
-#   #   #       genre: genre
-#   #   #     )
-#   #   # end
+    # genres = m["Genre"].split(",").map { | genre | genre.strip.gsub("'", '') }
 
-#   #   # End our Genre Table
-#   # else
-#   #   puts "Invalid MEDIA TYPE #{m["media_type"]} for Manga #{m["title"]}"
-#   # end
-# end
+    # puts genres
 
-# ## Creation Counter
-# puts "Created #{Type.count} Types"
-# puts "Created #{Anime.count} Animes"
-# puts "Created #{AnimeGenre.count} Anime Genres"
+    # genres.each do | genre_name |
+    #     genre = Genre.find_or_create_by(name: genre_name)
 
-# puts "Created #{Manga.count} Mangas"
+    #     MangaGenre.create(
+    #       manga: manga,
+    #       genre: genre
+    #     )
+    # end
+
+    # End our Genre Table
+  # else
+  #   puts "Invalid MEDIA TYPE #{m["media_type"]} for Manga #{m["title"]}"
+  # end
+end
+
+## Creation Counter
+puts "Created #{Type.count} Types"
+puts "Created #{Anime.count} Animes"
+puts "Created #{AnimeGenre.count} Anime Genres"
+
+puts "Created #{Manga.count} Mangas"
+
+# Created 6 Types
+# Created 1563 Animes
+# Created 6661 Anime Genres
+# Created 1001 Mangas
