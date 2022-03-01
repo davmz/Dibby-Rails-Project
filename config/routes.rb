@@ -1,14 +1,4 @@
 Rails.application.routes.draw do
-  get 'genres/index'
-  get 'genres/show'
-  get 'producers/index'
-  get 'producers/show'
-  get 'studios/index'
-  get 'studios/show'
-  get 'studio/index'
-  get 'studio/show'
-  get 'mangas/index'
-  get 'mangas/show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -19,6 +9,16 @@ Rails.application.routes.draw do
   # get 'types/show'
   # get 'animes/index'
   # get 'animes/show'
+  # get 'genres/index'
+  # get 'genres/show'
+  # get 'producers/index'
+  # get 'producers/show'
+  # get 'studios/index'
+  # get 'studios/show'
+  # get 'studio/index'
+  # get 'studio/show'
+  # get 'mangas/index'
+  # get 'mangas/show'
 
   ## Home page
   root to: "home#index"
@@ -31,6 +31,9 @@ Rails.application.routes.draw do
 
     # animes/search/(:format)
   end
+
+  ## Genre
+  resources :genres, only: [:index, :show]
 
   ## Type
   resources :types, only: [:index, :show]
