@@ -80,6 +80,9 @@ animes.each do | a |
 end
 
 mangas.each do | m |
+
+  # Create our Animes Table
+
   manga = Manga.create(
     name: m["Title"],
     chapter: m["Chapters"],
@@ -91,10 +94,14 @@ mangas.each do | m |
     publish: m["Publish_period"],
   )
 
+  # End our Manga Creation
+
+
   unless manga.valid?
     puts "Invalid manga #{m["Title"]}"
     next
   end
+
 
   # Create our Genres Table
 
@@ -108,6 +115,8 @@ mangas.each do | m |
         genre: genre
       )
   end
+
+  # End our Genre Creation
 end
 
 ## Creation Counter
