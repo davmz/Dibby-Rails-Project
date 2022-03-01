@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'genres/index'
+  get 'genres/show'
   get 'producers/index'
   get 'producers/show'
   get 'studios/index'
