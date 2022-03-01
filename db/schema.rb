@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_01_073541) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_01_093502) do
   create_table "anime_genres", force: :cascade do |t|
     t.integer "anime_id", null: false
     t.integer "genre_id", null: false
@@ -42,31 +42,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_01_073541) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "manga_genres", force: :cascade do |t|
-    t.integer "manga_id", null: false
-    t.integer "genre_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["genre_id"], name: "index_manga_genres_on_genre_id"
-    t.index ["manga_id"], name: "index_manga_genres_on_manga_id"
-  end
-
   create_table "mangas", force: :cascade do |t|
     t.string "name"
-    t.integer "chapter"
-    t.string "img"
-    t.string "synopsis"
-    t.integer "popularity"
-    t.integer "volumes"
+    t.string "chapter"
+    t.string "volume"
     t.string "status"
-    t.integer "media_type_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["media_type_id"], name: "index_mangas_on_media_type_id"
-  end
-
-  create_table "media_types", force: :cascade do |t|
-    t.string "name"
+    t.decimal "score"
+    t.integer "popularity"
+    t.string "synopsis"
+    t.string "publish"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -80,7 +64,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_01_073541) do
   add_foreign_key "anime_genres", "animes"
   add_foreign_key "anime_genres", "genres"
   add_foreign_key "animes", "types"
-  add_foreign_key "manga_genres", "genres"
-  add_foreign_key "manga_genres", "mangas"
-  add_foreign_key "mangas", "media_types"
 end

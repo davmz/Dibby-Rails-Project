@@ -2,20 +2,20 @@
 
 one:
   name: MyString
-  chapter: 1
-  img: MyString
-  synopsis: MyString
-  popularity: 1
-  volumes: 1
+  chapter: MyString
+  volume: MyString
   status: MyString
-  media_type: one
+  score: 9.99
+  popularity: 1
+  synopsis: MyString
+  publish: MyString
 
 two:
   name: MyString
-  chapter: 1
-  img: MyString
-  synopsis: MyString
-  popularity: 1
-  volumes: 1
+  chapter: MyString
+  volume: MyString
   status: MyString
-  media_type: two
+  score: 9.99
+  popularity: 1
+  synopsis: MyString
+  publish: MyString
