@@ -1,2 +1,7 @@
-<h1>Mangas#index</h1>
-<p>Find me in app/views/mangas/index.html.erb</p>
+<h1 class="title is-2">Top Mangas</h1>
+
+<% @mangas.each do | manga | %>
+  <li>
+    <%= link_to manga.name, manga %> was published on <%= manga.publish %>
+  </li>
+<% end %>
