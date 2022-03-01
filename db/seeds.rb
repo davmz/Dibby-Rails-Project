@@ -13,6 +13,7 @@ AnimeGenre.delete_all
 Anime.delete_all
 Type.delete_all
 
+MangaGenre.delete_all
 Manga.delete_all
 
 Genre.delete_all
@@ -79,7 +80,7 @@ animes.each do | a |
 end
 
 mangas.each do | m |
-  Manga.create(
+  manga = Manga.create(
     name: m["Title"],
     chapter: m["Chapters"],
     volume: m["Volumns"],
@@ -90,25 +91,23 @@ mangas.each do | m |
     publish: m["Publish_period"],
   )
 
-    # Create our Genres Table
+  unless manga.valid?
+    puts "Invalid manga #{m["Title"]}"
+    next
+  end
 
-    # genres = m["Genre"].split(",").map { | genre | genre.strip.gsub("'", '') }
+  # Create our Genres Table
 
-    # puts genres
+  genres = m["Genre"].split(",").map { | genre | genre.strip.gsub("'", '') }
 
-    # genres.each do | genre_name |
-    #     genre = Genre.find_or_create_by(name: genre_name)
+  genres.each do | genre_name |
+      genre = Genre.find_or_create_by(name: genre_name)
 
-    #     MangaGenre.create(
-    #       manga: manga,
-    #       genre: genre
-    #     )
-    # end
-
-    # End our Genre Table
-  # else
-  #   puts "Invalid MEDIA TYPE #{m["media_type"]} for Manga #{m["title"]}"
-  # end
+      MangaGenre.create(
+        manga: manga,
+        genre: genre
+      )
+  end
 end
 
 ## Creation Counter
@@ -117,8 +116,10 @@ puts "Created #{Anime.count} Animes"
 puts "Created #{AnimeGenre.count} Anime Genres"
 
 puts "Created #{Manga.count} Mangas"
+puts "Created #{MangaGenre.count} Anime Genres"
 
 # Created 6 Types
 # Created 1563 Animes
 # Created 6661 Anime Genres
 # Created 1001 Mangas
+# Created 4147 Anime Genres
