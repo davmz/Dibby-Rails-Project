@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_01_142121) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_01_212125) do
   create_table "anime_genres", force: :cascade do |t|
     t.integer "anime_id", null: false
     t.integer "genre_id", null: false
@@ -78,6 +78,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_01_142121) do
     t.integer "popularity"
     t.string "synopsis"
     t.string "publish"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "permalink"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
