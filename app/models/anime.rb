@@ -6,6 +6,9 @@ class Anime < ApplicationRecord
   has_many :anime_studios
   has_many :studios, through: :anime_studios
 
+  has_many :anime_producers
+  has_many :producers, through: :anime_producers
+
   # validation
   validates :name, :episode, :status, :season, :duration, :rating, :score, :vote, :description, presence: true
   validates :name, uniqueness: true

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_01_140102) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_01_142121) do
   create_table "anime_genres", force: :cascade do |t|
     t.integer "anime_id", null: false
     t.integer "genre_id", null: false
@@ -18,6 +18,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_01_140102) do
     t.datetime "updated_at", null: false
     t.index ["anime_id"], name: "index_anime_genres_on_anime_id"
     t.index ["genre_id"], name: "index_anime_genres_on_genre_id"
+  end
+
+  create_table "anime_producers", force: :cascade do |t|
+    t.integer "anime_id", null: false
+    t.integer "producer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["anime_id"], name: "index_anime_producers_on_anime_id"
+    t.index ["producer_id"], name: "index_anime_producers_on_producer_id"
   end
 
   create_table "anime_studios", force: :cascade do |t|
@@ -93,6 +102,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_01_140102) do
 
   add_foreign_key "anime_genres", "animes"
   add_foreign_key "anime_genres", "genres"
+  add_foreign_key "anime_producers", "animes"
+  add_foreign_key "anime_producers", "producers"
   add_foreign_key "anime_studios", "animes"
   add_foreign_key "anime_studios", "studios"
   add_foreign_key "animes", "types"
