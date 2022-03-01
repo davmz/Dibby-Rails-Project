@@ -9,6 +9,7 @@
 require "csv"
 
 ## Delete Model Tables
+AnimeProducer.delete_all
 Producer.delete_all
 
 AnimeStudio.delete_all
@@ -104,10 +105,10 @@ animes.each do | a |
     producers.each do | producer_name |
       producer = Producer.find_or_create_by(name: producer_name)
 
-      # AnimeProducer.create(
-      #   anime: anime,
-      #   producer: producer
-      # )
+      AnimeProducer.create(
+        anime: anime,
+        producer: producer
+      )
     end
 
     # End our Studio Creation
@@ -161,7 +162,7 @@ puts "Created #{Studio.count} Studios"
 puts "Created #{AnimeStudio.count} Anime Studios"
 
 puts "Created #{Producer.count} Producers"
-# puts "Created #{AnimeProducer.count} Anime Producers"
+puts "Created #{AnimeProducer.count} Anime Producers"
 
 puts "Created #{Type.count} Types"
 puts "Created #{Anime.count} Animes"
@@ -173,7 +174,7 @@ puts "Created #{MangaGenre.count} Anime Genres"
 # Created 147 Studios
 # Created 1671 Anime Studios
 # Created 400 Producers
-# Created  Anime Producers
+# Created 4044 Anime Producers
 # Created 6 Types
 # Created 1563 Animes
 # Created 6661 Anime Genres
