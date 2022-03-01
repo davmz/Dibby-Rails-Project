@@ -20,8 +20,10 @@ Rails.application.routes.draw do
   # get 'animes/index'
   # get 'animes/show'
 
-  # Home page
+  ## Home page
   root to: "home#index"
+
+  ## Anime
   resources :animes, only: [:index, :show] do
     collection do
       get "search"
@@ -30,5 +32,15 @@ Rails.application.routes.draw do
     # animes/search/(:format)
   end
 
+  ## Type
   resources :types, only: [:index, :show]
+
+  ## Manga
+  resources :mangas, only: [:index, :show]
+
+  ## Studio
+  resources :studios, only: [:index, :show]
+
+  ## Producer
+  resources :producers, only: [:index, :show]
 end

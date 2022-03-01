@@ -1,23 +1,19 @@
+Manga Table
+
+Manga Genre Table (JOINER between Manga and Genre)
+
+Genre Table (CENTER and BRIDGE of Anime and Genre)
+
+Anime_Genre Table (JOINER between Anime and Genre)
+
 Type Table
-- id, name
 
-Anime Table
-- id, name
+Anime Table (BELONGS TO Type Table)
 
-Anime Producer Table
-- anime_id, producer_id
+Producer Table
 
-Producer Table (ONE Producer can be with MANY Anime)
-- id, name
+Anime Producer Table (JOINER between Anime and Producer)
 
-Studio Anime Table
-- anime_id, studio_id
+Studio Table
 
-Studio Table (ONE Studio can be with MANY Anime)
-- id, name
-
-Anime_Genre Table
-- anime_id, genre_id
-
-Genre Table (MANY Genre can be with MANY Anime)
-- id, name
+Studio Anime Table (JOINER between Anime and Producer)

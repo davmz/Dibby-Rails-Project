@@ -1,4 +1,4 @@
-GET /
+GET / # ROOT/HOME
 GET /Anime
 GET /Anime/:id
 
