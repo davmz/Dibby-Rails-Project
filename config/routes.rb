@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'studios/index'
+  get 'studios/show'
+  get 'studio/index'
+  get 'studio/show'
   get 'mangas/index'
   get 'mangas/show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
