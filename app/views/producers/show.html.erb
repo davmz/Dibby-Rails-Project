@@ -1,5 +1,41 @@
 <h1 class="title is-2">
-  <%= @producer.name %>
+  <em><%= @producer.name %></em> - Producer
 </h1>
 
 <% content_for(:html_title) {@producer.name + " | Producer"} %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+
+  <tfoot>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Score</th>
+    </tr>
+  </tfoot>
+
+  <tbody>
+    <% @anime_producer.each do | producer |%>
+      <tr>
+        <th>
+          <%= producer.anime.id %>
+        </th>
+
+        <td>
+          <%= link_to producer.anime.name, anime_path(producer.anime.id) %>
+        </td>
+
+        <td>
+          <%= producer.anime.score %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

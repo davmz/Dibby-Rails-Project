@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_02_055101) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_02_165013) do
   create_table "anime_genres", force: :cascade do |t|
     t.integer "anime_id", null: false
     t.integer "genre_id", null: false
@@ -94,6 +94,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_02_055101) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "search_entries", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.string "searchable_type", null: false
+    t.integer "searchable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_search_entries_on_searchable"
   end
 
   create_table "studios", force: :cascade do |t|

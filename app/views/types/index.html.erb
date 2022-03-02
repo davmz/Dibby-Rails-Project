@@ -1,7 +1,37 @@
 <h1 class="title is-2">Anime Types</h1>
 
-<ol>
-  <% @types.each do | type |%>
-    <li><%= link_to type.name, type %></li>
-  <% end %>
-</ol>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+
+  <tfoot>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Type</th>
+    </tr>
+  </tfoot>
+
+  <tbody>
+    <% @types.each do | type |%>
+      <tr>
+        <th>
+          <%= type.id %>
+        </th>
+
+        <td>
+          <%= link_to type.name, type %>
+        </td>
+
+        <td>
+          <%= type.animes.count %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

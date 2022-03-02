@@ -1,7 +1,43 @@
 <h1 class="title is-2">Genres</h1>
 
-<% @genres.each do | genre | %>
-  <li>
-    <%= link_to genre.name, genre %>
-  </li>
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Anime</th>
+      <th>Manga</th>
+    </tr>
+  </thead>
+
+  <tfoot>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Anime</th>
+      <th>Manga</th>
+    </tr>
+  </tfoot>
+
+  <tbody>
+    <% @genres.each do | genre | %>
+      <tr>
+        <th>
+          <%= genre.id %>
+        </th>
+
+        <td>
+          <%= link_to genre.name, genre %>
+        </td>
+
+        <td>
+          <%= genre.animes.count %>
+        </td>
+
+        <td>
+          <%= genre.mangas.count %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

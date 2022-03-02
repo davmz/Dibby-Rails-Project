@@ -1,4 +1,13 @@
-<li>
-  <%= link_to anime.name, anime %>
-  <em>(<%= link_to anime.type.name %>)</em>
-</li>
+<tr>
+  <th>
+    <%= anime.id %>
+  </th>
+
+  <td>
+    <%= link_to anime.name, anime %>
+  </td>
+
+  <td>
+    <%= anime.score %>
+  </td>
+</tr>

@@ -1,9 +1,28 @@
 <div class="columns">
   <div class="column">
     <h2 class="title is-2">Top 30 Animes</h2>
-    <ol class="ml-5">
-      <%= render @animes %>
-    </ol>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+
+      <tfoot>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </tfoot>
+
+      <tbody>
+        <%= render @animes %>
+      </tbody>
+    </table>
+
 
     <p class="mt-5">
       <strong>
@@ -14,9 +33,28 @@
 
   <div class="column">
     <h2 class="title is-2">Top 30 Mangas</h2>
-    <ol class="ml-5">
-      <%= render @mangas %>
-    </ol>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+
+      <tfoot>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </tfoot>
+
+      <tbody>
+        <%= render @mangas %>
+      </tbody>
+    </table>
 
     <p class="mt-5">
       <strong>

@@ -1,0 +1,14 @@
+<p class="mb-5">
+  Mangas found when searching for:
+  <strong>
+    <%= params[:keywords] %>
+  </strong>
+</p>
+
+<ul>
+  <% @mangas.each do | manga | %>
+    <li>
+      <%= link_to manga.name, manga %>
+    </li>
+  <% end %>
+</ul>

@@ -1,5 +1,41 @@
 <h1 class="title is-2">
-  <%= @studio.name %>
+  <em><%= @studio.name %></em> - Studio
 </h1>
 
 <% content_for(:html_title) {@studio.name + " | Studio"} %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+
+  <tfoot>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Score</th>
+    </tr>
+  </tfoot>
+
+  <tbody>
+    <% @anime_studio.each do | studio |%>
+      <tr>
+        <th>
+          <%= studio.anime.id %>
+        </th>
+
+        <td>
+          <%= link_to studio.anime.name, anime_path(studio.anime.id) %>
+        </td>
+
+        <td>
+          <%= studio.anime.score %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

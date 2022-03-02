@@ -1,3 +1,43 @@
-<h1 class="title is-2">Top Mangas</h1>
+<h1 class="title is-2">Mangas</h1>
 
-<%= render @mangas %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tfoot>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Status</th>
+    </tr>
+  </tfoot>
+
+  <tbody>
+    <% @mangas.each do | manga | %>
+      <tr>
+        <th>
+          <%= manga.id %>
+        </th>
+
+        <td>
+          <%= link_to manga.name, manga %>
+        </td>
+
+        <td>
+          <%= manga.score %>
+        </td>
+
+        <td>
+          <%= manga.status %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

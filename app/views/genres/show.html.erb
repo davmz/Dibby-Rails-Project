@@ -1,5 +1,99 @@
 <h1 class="title is-2">
-  <%= @genre.name %>
+  <em><%= @genre.name %></em> - Genre
 </h1>
 
 <% content_for(:html_title) {@genre.name + " | Genre"} %>
+
+<div class="columns">
+  <div class="column">
+    <h2 class="title is-3">Animes</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+
+      <tfoot>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </tfoot>
+
+      <tbody>
+        <% @anime_genre.each do | anime | %>
+          <tr>
+            <th>
+              <%= anime.anime.id %>
+            </th>
+
+            <td>
+              <%= link_to anime.anime.name, anime_path(anime.anime.id) %>
+            </td>
+
+            <td>
+              <%= anime.anime.score %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
+    <p class="mt-5">
+      <strong>
+        <%= link_to '👉 See All Animes', animes_path %>
+      </strong>
+    </p>
+  </div>
+
+  <div class="column">
+    <h2 class="title is-3">Mangas</h2>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+
+      <tfoot>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </tfoot>
+
+      <tbody>
+        <% @manga_genre.each do | manga | %>
+          <tr>
+            <th>
+              <%= manga.manga.id %>
+            </th>
+
+            <td>
+              <%= link_to manga.manga.name, manga_path(manga.manga.id) %>
+            </td>
+
+            <td>
+              <%= manga.manga.score %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <p class="mt-5">
+      <strong>
+        <%= link_to '👉 See All Mangas', animes_path %>
+      </strong>
+    </p>
+  </div>
+</div>

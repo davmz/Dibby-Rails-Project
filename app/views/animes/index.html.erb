@@ -1,3 +1,43 @@
 <h1 class="title is-2">Top Animes</h1>
 
-<%= render @animes %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tfoot>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Status</th>
+    </tr>
+  </tfoot>
+
+  <tbody>
+    <% @animes.each do | anime | %>
+      <tr>
+        <th>
+          <%= anime.id %>
+        </th>
+
+        <td>
+          <%= link_to anime.name, anime %>
+        </td>
+
+        <td>
+          <%= anime.score %>
+        </td>
+
+        <td>
+          <%= anime.status %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

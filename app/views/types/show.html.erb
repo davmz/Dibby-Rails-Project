@@ -1,15 +1,47 @@
-<h1 class="title is-2"><%= @type.name %></h1>
+<h1 class="title is-2">
+  Anime <%= @type.name %> - <em><%= @type.animes.count %></em>
+</h1>
 
 <% content_for(:html_title) {@type.name} %>
 
-<p class="mb-5">
-  This type has <%= @type.animes.count %> on MyAnimeList.
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Status</th>
+    </tr>
+  </thead>
 
-<ul>
-  <% @type.animes.each do | anime |%>
-    <li>
-      <%= link_to anime.name, anime %> with score of <%= anime.score %>
-    </li>
-  <% end %>
-</ul>
+  <tfoot>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Status</th>
+    </tr>
+  </tfoot>
+
+  <tbody>
+    <% @type.animes.each do | anime | %>
+      <tr>
+        <th>
+          <%= anime.id %>
+        </th>
+
+        <td>
+          <%= link_to anime.name, anime %>
+        </td>
+
+        <td>
+          <%= anime.score %>
+        </td>
+
+        <td>
+          <%= anime.status %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

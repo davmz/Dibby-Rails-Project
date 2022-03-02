@@ -1,7 +1,37 @@
 <h1 class="title is-2">Studios</h1>
 
-<% @studios.each do | studio | %>
-  <li>
-    <%= link_to studio.name, studio %>
-  </li>
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Number of Anime's</th>
+    </tr>
+  </thead>
+
+  <tfoot>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Number of Anime's</th>
+    </tr>
+  </tfoot>
+
+  <tbody>
+    <% @studios.each do | studio | %>
+      <tr>
+        <th>
+          <%= studio.id %>
+        </th>
+
+        <td>
+          <%= link_to studio.name, studio %>
+        </td>
+
+        <td>
+          <%= studio.animes.count %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

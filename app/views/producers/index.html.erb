@@ -1,7 +1,37 @@
 <h1 class="title is-2">Producers</h1>
 
-<% @producers.each do | producer | %>
-  <li>
-    <%= link_to producer.name, producer %>
-  </li>
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Number of Anime's</th>
+    </tr>
+  </thead>
+
+  <tfoot>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Number of Anime's</th>
+    </tr>
+  </tfoot>
+
+  <tbody>
+    <% @producers.each do | producer | %>
+      <tr>
+        <th>
+          <%= producer.id %>
+        </th>
+
+        <td>
+          <%= link_to producer.name, producer %>
+        </td>
+
+        <td>
+          <%= producer.animes.count %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
