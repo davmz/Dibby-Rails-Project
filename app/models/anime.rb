@@ -15,9 +15,6 @@ class Anime < ApplicationRecord
   validates :vote, numericality: { only_integer: true }
   validates :score, numericality: true
 
-  def genres_list
-    self.genres.map(&:name).join(", ")
-  end
 
   def studios_list
     self.studios.map(&:name).join(", ")

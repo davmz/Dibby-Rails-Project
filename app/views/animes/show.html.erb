@@ -32,19 +32,19 @@
 <p>
   <strong>Genre:</strong>
 
-  <%= @anime.genres_list %>
+  <%= @anime.genres.map { | genre | link_to(genre.name, genre_path(genre.id)) }.join(", ").html_safe %>
 </p>
 
 <p>
   <strong>Studio:</strong>
 
-  <%= @anime.studios_list %>
+  <%= @anime.studios.map { | studio | link_to(studio.name, studio_path(studio.id)) }.join(", ").html_safe %>
 </p>
 
 <p>
   <strong>Producer:</strong>
 
-  <%= @anime.producers_list %>
+  <%= @anime.producers.map { | producer | link_to(producer.name, producer_path(producer.id)) }.join(", ").html_safe %>
 </p>
 
 <p>
