@@ -30,9 +30,9 @@
 </p>
 
 <p>
-  <strong>Genre:</strong>
+  <strong>Genre</strong>
 
-  <%= @manga.genres_list %>
+  <%= @manga.genres.map { | genre | link_to(genre.name, genre_path(genre.id)) }.join(", ").html_safe %>
 </p>
 
 <p class="mb-5">

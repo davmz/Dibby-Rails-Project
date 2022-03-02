@@ -6,8 +6,4 @@ class Manga < ApplicationRecord
   validates :name, :chapter, :volume, :status, :synopsis, :publish, presence: true
   validates :score, numericality: true
   validates :popularity, numericality: { only_integer: true }
-
-  def genres_list
-    self.genres.map(&:name).join(", ")
-  end
 end
