@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   get "/pages/:permalink" => "pages#permalink", as: "permalink"
 
-  ## Anime
+  ## Search Anime, Manga
   resources :animes, only: [:index, :show] do
     collection do
       get "search"
@@ -37,14 +37,14 @@ Rails.application.routes.draw do
     # animes/search/(:format)
   end
 
+  ## Manga
+  resources :mangas, only: [:index, :show]
+
   ## Genre
   resources :genres, only: [:index, :show]
 
   ## Type
   resources :types, only: [:index, :show]
-
-  ## Manga
-  resources :mangas, only: [:index, :show]
 
   ## Studio
   resources :studios, only: [:index, :show]

@@ -1,21 +1,9 @@
-<footer>
-  <ul>
-    <li>
-      <%= link_to "Home", root_path %>
-    </li>
-
-    <li>
-      <%= link_to "Anime", animes_path %>
-    </li>
-
-    <li>
-      <%= link_to "Type", types_path %>
-    </li>
-
-    <% cms_pages.each do | page | %>
-      <li>
-        <%= link_to page.title, permalink_path(page.permalink) %>
-      </li>
-    <% end %>
-  </ul>
+<footer class="footer has-background-black">
+  <div class="content has-text-centered">
+    <p class="has-text-white title is-5">
+      <strong>Bulma</strong> by <span class="has-text-info">David Montanez</span>. The source code is licensed
+      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+      is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+    </p>
+  </div>
 </footer>

@@ -14,13 +14,4 @@ class Anime < ApplicationRecord
   validates :name, uniqueness: true
   validates :vote, numericality: { only_integer: true }
   validates :score, numericality: true
-
-
-  def studios_list
-    self.studios.map(&:name).join(", ")
-  end
-
-  def producers_list
-    self.producers.map(&:name).join(", ")
-  end
 end
