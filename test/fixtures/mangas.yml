@@ -7,8 +7,8 @@ one:
   status: MyString
   score: 9.99
   popularity: 1
-  synopsis: MyString
   publish: MyString
+  synopsis: MyString
 
 two:
   name: MyString
@@ -17,5 +17,5 @@ two:
   status: MyString
   score: 9.99
   popularity: 1
-  synopsis: MyString
   publish: MyString
+  synopsis: MyString

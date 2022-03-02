@@ -168,7 +168,7 @@ end
 # Created 1563 Animes
 # Created 6661 Anime Genres
 # Created 1001 Mangas
-# Created 4147 Anime Genres
+# Created 4147 Manga Genres
 puts "Created #{Studio.count} Studios"
 puts "Created #{AnimeStudio.count} Anime Studios"
 

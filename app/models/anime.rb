@@ -18,4 +18,12 @@ class Anime < ApplicationRecord
   def genres_list
     self.genres.map(&:name).join(", ")
   end
+
+  def studios_list
+    self.studios.map(&:name).join(", ")
+  end
+
+  def producers_list
+    self.producers.map(&:name).join(", ")
+  end
 end

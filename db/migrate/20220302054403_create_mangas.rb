@@ -7,8 +7,8 @@ class CreateMangas < ActiveRecord::Migration[7.0]
       t.string :status
       t.decimal :score
       t.integer :popularity
-      t.string :synopsis
       t.string :publish
+      t.string :synopsis
 
       t.timestamps
     end
