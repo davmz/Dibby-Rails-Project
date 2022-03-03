@@ -9,7 +9,7 @@ class AnimesController < ApplicationController
   end
 
   def search
-    wildcard_search = "%#{params[:keywords]}"
+    wildcard_search = "%#{params[:keywords]}%"
     @animes = Anime.where("name LIKE ?", wildcard_search)
   end
 end

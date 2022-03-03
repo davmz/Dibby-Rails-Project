@@ -1,0 +1,39 @@
+<p class="mb-5">
+  Your search for <strong>"<%= params[:keywords] %>"</strong> found <%= @searches.count %> <%= params[:dropdown_selection] %>:
+</p>
+
+<% if @searches.count != 0 %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tfoot>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+    </tr>
+  </tfoot>
+
+  <tbody>
+    <% @searches.each do | search | %>
+      <tr>
+        <th>
+          <%= search.id %>
+        </th>
+
+        <td>
+          <%= link_to search.name, search %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+  <p class="title is-2">
+    No data found...
+  </p>
+<% end %>

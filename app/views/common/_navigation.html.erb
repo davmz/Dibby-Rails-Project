@@ -36,6 +36,25 @@
       </div>
     </div>
 
+    <%= form_with(url: search_path, method: :get, local: true, class: "navbar-end") do  %>
+      <div class="field is-grouped mb-5">
+        <!-- SEARCH TEXTBOX-->
+        <div class="control is-expanded">
+          <%= text_field_tag(:keywords, nil, class: "input", placeholder: "Search for Animes, Mangas, and more...") %>
+        </div>
+
+        <!-- SEARCH DROPDOWN SELECTION -->
+        <%= form_tag "search", method: :get do %>
+          <%= select_tag :dropdown_selection, options_for_select(["anime", "manga", "genre", "studio", "producer"]) %>
+        <% end %>
+
+        <!-- SEARCH BUTTON -->
+        <div class="control">
+          <%= submit_tag("Search", class: "button is-primary") %>
+        </div>
+      </div>
+    <% end %>
+
     <%= form_with(url: search_animes_path, method: :get, local: true, class: "navbar-end") do  %>
       <div class="field is-grouped mb-5">
         <div class="control is-expanded">

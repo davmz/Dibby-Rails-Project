@@ -23,12 +23,14 @@ Rails.application.routes.draw do
   ## Home page
   root to: "home#index"
 
+  get "search", to: "search#index"
+
   ## Pages
   resources :pages, except: [:show]
 
   get "/pages/:permalink" => "pages#permalink", as: "permalink"
 
-  ## Search Anime, Manga
+  ## Search Anime
   resources :animes, only: [:index, :show] do
     collection do
       get "search"
@@ -38,7 +40,13 @@ Rails.application.routes.draw do
   end
 
   ## Manga
-  resources :mangas, only: [:index, :show]
+  resources :mangas, only: [:index, :show] do
+    collection do
+      get "search"
+    end
+
+    # mangas/search/(:format)
+  end
 
   ## Genre
   resources :genres, only: [:index, :show]
