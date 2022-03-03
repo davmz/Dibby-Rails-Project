@@ -2,6 +2,8 @@
 
 Dibby is a data collection for Anime and Manga.
 
+DISCLAIMER: WAS NOT ABLE TO IMPLEMENT EVERYTHING. WILL NEED TO COMEBACK AND FIX STYLING, PAGINATION, UPDATED DATA FROM API's,
+SEARCH BAR IMPLEMENTATION COULD BE FIXED
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
