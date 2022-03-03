@@ -1,5 +1,8 @@
 # README
 
+Dibby is a data collection for Anime and Manga.
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
