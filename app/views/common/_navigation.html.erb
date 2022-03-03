@@ -1,6 +1,6 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-black level px-6 py-3" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <%= link_to "DIBBY", root_path, class: "navbar-item", style: "font-weight:bold; font-size: 28px;" %>
+    <%= link_to "DIBBY", root_path, class: "navbar-item has-text-white", style: "font-weight:bold; font-size: 28px;" %>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -11,20 +11,20 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <%= link_to "Type", types_path, class: "navbar-item" %>
+      <%= link_to "Type", types_path, class: "navbar-item has-text-white" %>
 
-      <%= link_to "Anime", animes_path, class: "navbar-item" %>
+      <%= link_to "Anime", animes_path, class: "navbar-item has-text-white" %>
 
-      <%= link_to "Manga", mangas_path, class: "navbar-item" %>
+      <%= link_to "Manga", mangas_path, class: "navbar-item has-text-white" %>
 
-      <%= link_to "Genre", genres_path, class: "navbar-item" %>
+      <%= link_to "Genre", genres_path, class: "navbar-item has-text-white" %>
 
-      <%= link_to "Studio", studios_path, class: "navbar-item" %>
+      <%= link_to "Studio", studios_path, class: "navbar-item has-text-white" %>
 
-      <%= link_to "Producer", producers_path, class: "navbar-item" %>
+      <%= link_to "Producer", producers_path, class: "navbar-item has-text-white" %>
 
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
+        <a class="navbar-link has-text-white">
           More
         </a>
 
@@ -36,47 +36,25 @@
       </div>
     </div>
 
-    <%= form_with(url: search_path, method: :get, local: true, class: "navbar-end") do  %>
-      <div class="field is-grouped mb-5">
-        <!-- SEARCH TEXTBOX-->
-        <div class="control is-expanded">
-          <%= text_field_tag(:keywords, nil, class: "input", placeholder: "Search for Animes, Mangas, and more...") %>
-        </div>
+    <div class="navbar-end">
+      <%= form_with(url: search_path, method: :get, local: true, class: "navbar-item") do  %>
+        <div class="field is-grouped">
+          <div class="control is-expanded" style="width: 350px">
+            <%= text_field_tag(:keywords, nil, class: "input is-rounded", placeholder: "Search for Animes, Mangas, and more...") %>
+          </div>
 
-        <!-- SEARCH DROPDOWN SELECTION -->
-        <%= form_tag "search", method: :get do %>
-          <%= select_tag :dropdown_selection, options_for_select(["anime", "manga", "genre", "studio", "producer"]) %>
-        <% end %>
+          <div class="select mr-4">
+            <%= form_tag "search", method: :get do %>
+              <%= select_tag :dropdown_selection, options_for_select(["Anime", "Manga", "Genre", "Studio", "Producer"]) %>
+            <% end %>
+          </div>
 
-        <!-- SEARCH BUTTON -->
-        <div class="control">
-          <%= submit_tag("Search", class: "button is-primary") %>
-        </div>
-      </div>
-    <% end %>
 
-    <%= form_with(url: search_animes_path, method: :get, local: true, class: "navbar-end") do  %>
-      <div class="field is-grouped mb-5">
-        <div class="control is-expanded">
-          <%= text_field_tag(:keywords, nil, class: "input", placeholder: "Search for Animes, Mangas, and more...") %>
+          <div class="control">
+            <%= submit_tag("Search", class: "button is-primary") %>
+          </div>
         </div>
-        <div class="control">
-          <%= submit_tag("Search", class: "button is-primary") %>
-        </div>
-      </div>
-    <% end %>
-
-    <%# <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">
-            Log in
-          </a>
-        </div>
-      </div>
-    </div> %>
+      <% end %>
+    </div>
   </div>
 </nav>
