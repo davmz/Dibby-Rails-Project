@@ -1,6 +1,6 @@
 class ProducersController < ApplicationController
   def index
-    @producers = Producer.all
+    @producers = Producer.all.page(params[:page])
   end
 
   def show

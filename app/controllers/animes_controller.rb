@@ -1,7 +1,10 @@
 class AnimesController < ApplicationController
   def index
     # @animes = Anime.order("score DESC"); -> creates the famous n+1 problem
-    @animes = Anime.includes(:type).all.order("score DESC")
+    @animes = Anime
+      .includes(:type)
+      .all.order("score DESC")
+      .page(params[:page])
   end
 
   def show

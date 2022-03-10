@@ -1,4 +1,6 @@
 class Manga < ApplicationRecord
+  paginates_per 12
+
   has_many :manga_genres
   has_many :genres, through: :manga_genres
 

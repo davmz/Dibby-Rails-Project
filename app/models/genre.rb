@@ -1,4 +1,6 @@
 class Genre < ApplicationRecord
+  paginates_per 6
+
   has_many :anime_genres
   has_many :animes, through: :anime_genres
 

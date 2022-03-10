@@ -1,6 +1,6 @@
 class MangasController < ApplicationController
   def index
-    @mangas = Manga.order("score DESC")
+    @mangas = Manga.order("score DESC").page(params[:page])
   end
 
   def show

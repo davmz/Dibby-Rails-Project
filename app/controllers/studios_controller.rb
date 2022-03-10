@@ -1,6 +1,6 @@
 class StudiosController < ApplicationController
   def index
-    @studios = Studio.all
+    @studios = Studio.all.page(params[:page])
   end
 
   def show
