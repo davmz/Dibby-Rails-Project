@@ -3,35 +3,35 @@
 </p>
 
 <% if @searches.count != 0 %>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Rank</th>
-      <th>Name</th>
-    </tr>
-  </thead>
-
-  <tfoot>
-    <tr>
-      <th>Rank</th>
-      <th>Name</th>
-    </tr>
-  </tfoot>
-
-  <tbody>
-    <% @searches.each do | search | %>
+  <table class="table">
+    <thead>
       <tr>
-        <th>
-          <%= search.id %>
-        </th>
-
-        <td>
-          <%= link_to search.name, search %>
-        </td>
+        <th>Rank</th>
+        <th>Name</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tfoot>
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <% @searches.each do | search | %>
+        <tr>
+          <th>
+            <%= search.id %>
+          </th>
+
+          <td>
+            <%= link_to search.name, search %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% else %>
   <p class="title is-2">
     No data found...

@@ -5,7 +5,7 @@ class SearchController < ApplicationController
     if params[:dropdown_selection] == "Anime"
       @searches = Anime.where("name LIKE ?", wildcard_search)
     elsif params[:dropdown_selection] == "Manga"
-      @searches = Anime.where("name LIKE ?", wildcard_search)
+      @searches = Manga.where("name LIKE ?", wildcard_search)
     elsif params[:dropdown_selection] == "Genre"
       @searches = Genre.where("name LIKE ?", wildcard_search)
     elsif params[:dropdown_selection] == "Studio"

@@ -1,53 +1,53 @@
-<h1 class="title is-2">
-  <%= @manga.name %>
-</h1>
-
 <% content_for(:html_title) {@manga.name + " | Manga"} %>
 
-<p>
-  <strong>Chapter:</strong>
-  <%= @manga.chapter %>
-</p>
+<section class="section">
+  <h1 class="title is-2 mb-6">
+    <%= @manga.name %>
+  </h1>
 
-<p>
-  <strong>Volume:</strong>
-  <%= @manga.volume %>
-</p>
+  <div class="columns is-variable is-2-mobile is-0-tablet is-3-desktop is-8-widescreen is-1-fullhd">
+    <div class="column is-one-fifth">
+      <p>
+        <strong>Chapter:</strong>
+        <%= @manga.chapter %>
+      </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @manga.status %>
-</p>
+      <p>
+        <strong>Volume:</strong>
+        <%= @manga.volume %>
+      </p>
 
-<p>
-  <strong>Score:</strong>
-  <%= @manga.score %>
-</p>
+      <p>
+        <strong>Status:</strong>
+        <%= @manga.status %>
+      </p>
 
-<p>
-  <strong>Popularity:</strong>
-  <%= @manga.popularity %>
-</p>
+      <p>
+        <strong>Score:</strong>
+        <%= @manga.score %>
+      </p>
 
-<p>
-  <strong>Genre</strong>
+      <p>
+        <strong>Popularity:</strong>
+        <%= @manga.popularity %>
+      </p>
 
-  <%= @manga.genres.map { | genre | link_to(genre.name, genre_path(genre.id)) }.join(", ").html_safe %>
-</p>
+      <p>
+        <strong>Genre</strong>
 
-<p class="mb-5">
-  <strong>Published:</strong>
-  <%= @manga.publish %>
-</p>
+        <%= @manga.genres.map { | genre | link_to(genre.name, genre_path(genre.id)) }.join(", ").html_safe %>
+      </p>
 
-<article class="message is-dark">
-  <div class="message-header">
-    <p>
-      Synopsis
-    </p>
+      <p class="mb-5">
+        <strong>Published:</strong>
+        <%= @manga.publish %>
+      </p>
+    </div>
+
+    <div class="column">
+      <div class="box">
+        <%= @manga.synopsis %>
+      </div>
+    </div>
   </div>
-
-  <div class="message-body">
-    <%= @manga.synopsis %>
-  </div>
-</article>
+</section>

@@ -1,77 +1,81 @@
-<h1 class="title is-2"><%= @anime.name %></h1>
 
 <% content_for(:html_title) {@anime.name + " | Anime"} %>
 
-<p>
-  <strong>Episode:</strong>
-  <%= @anime.episode %>
-</p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @anime.status %>
-</p>
+<section class="section">
+  <h1 class="title is-2 mb-6">
+    <%= @anime.name %>
+  </h1>
 
-<p>
-  <strong>Season:</strong>
-  <%= @anime.season %>
-</p>
+  <div class="columns is-variable is-2-mobile is-0-tablet is-3-desktop is-8-widescreen is-1-fullhd">
+    <div class="column is-one-third">
+      <p>
+        <strong>Episode:</strong>
+        <%= @anime.episode %>
+      </p>
 
-<p>
-  <strong>Duration:</strong>
+      <p>
+        <strong>Status:</strong>
+        <%= @anime.status %>
+      </p>
 
-  <%= @anime.duration %>
-</p>
+      <p>
+        <strong>Season:</strong>
+        <%= @anime.season %>
+      </p>
 
-<p>
-  <strong>Rating:</strong>
+      <p>
+        <strong>Duration:</strong>
 
-  <%= @anime.rating %>
-</p>
+        <%= @anime.duration %>
+      </p>
 
-<p>
-  <strong>Genre:</strong>
+      <p>
+        <strong>Rating:</strong>
 
-  <%= @anime.genres.map { | genre | link_to(genre.name, genre_path(genre.id)) }.join(", ").html_safe %>
-</p>
+        <%= @anime.rating %>
+      </p>
 
-<p>
-  <strong>Studio:</strong>
+      <p>
+        <strong>Genre:</strong>
 
-  <%= @anime.studios.map { | studio | link_to(studio.name, studio_path(studio.id)) }.join(", ").html_safe %>
-</p>
+        <%= @anime.genres.map { | genre | link_to(genre.name, genre_path(genre.id)) }.join(", ").html_safe %>
+      </p>
 
-<p>
-  <strong>Producer:</strong>
+      <p>
+        <strong>Studio:</strong>
 
-  <%= @anime.producers.map { | producer | link_to(producer.name, producer_path(producer.id)) }.join(", ").html_safe %>
-</p>
+        <%= @anime.studios.map { | studio | link_to(studio.name, studio_path(studio.id)) }.join(", ").html_safe %>
+      </p>
 
-<p>
-  <strong>Score:</strong>
+      <p>
+        <strong>Producer:</strong>
 
-  <%= @anime.score %>
-</p>
+        <%= @anime.producers.map { | producer | link_to(producer.name, producer_path(producer.id)) }.join(", ").html_safe %>
+      </p>
 
-<p>
-  <strong>Vote:</strong>
-  <%= @anime.vote %>
-</p>
+      <p>
+        <strong>Score:</strong>
+
+        <%= @anime.score %>
+      </p>
+
+      <p>
+        <strong>Vote:</strong>
+        <%= @anime.vote %>
+      </p>
 
 
-<p class="mb-5">
-  <strong>Type:</strong>
-  <%= link_to @anime.type.name, @anime.type %>
-</p>
+      <p class="mb-5">
+        <strong>Type:</strong>
+        <%= link_to @anime.type.name, @anime.type %>
+      </p>
+    </div>
 
-<article class="message is-dark">
-  <div class="message-header">
-    <p>
-      Description
-    </p>
+    <div class="column">
+      <div class="box">
+        <%= @anime.description %>
+      </div>
+    </div>
   </div>
-
-  <div class="message-body">
-    <%= @anime.description %>
-  </div>
-</article>
+</section>
