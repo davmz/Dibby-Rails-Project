@@ -2,6 +2,8 @@
   Your search for <strong>"<%= params[:keywords] %>"</strong> found <%= @searches.count %> <%= params[:dropdown_selection] %>:
 </p>
 
+<%= paginate @searches %>
+
 <% if @searches.count != 0 %>
   <table class="table">
     <thead>
@@ -37,3 +39,5 @@
     No data found...
   </p>
 <% end %>
+
+<%= paginate @searches %>
